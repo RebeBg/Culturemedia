@@ -1,8 +1,13 @@
 package culturemedia.repository;
 
+import culturemedia.model.Video;
 import culturemedia.model.View;
 
-public interface ViewRepository {
+import java.util.List;
+
+public interface ViewsRepository {
 
     void agregar(View view);
+
+
 }
