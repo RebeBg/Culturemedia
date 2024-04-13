@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface CultureMediaService {
     List<Video> findAll();
-    void addView(View view);
-    void addVideo(Video video) throws CultureMediaException;
+    void save(View view);
+    void save(Video video) ;
 }
 
 

@@ -6,5 +6,5 @@ import culturemedia.model.View;
 import java.util.List;
 
 public interface ViewsRepository {
-    void addView(View view);
+    void save(View view);
 }
