@@ -5,6 +5,7 @@ import culturemedia.model.Video;
 
 public class CultureMediaServiceImpl implements CultureMediaService {
     public List<Video> findAll() {
+        // Implementación del método findAll()
     }
 
     public Video addVideo(Video video) throws CultureMediaException {
@@ -16,6 +17,7 @@ public class CultureMediaServiceImpl implements CultureMediaService {
             throw DurationNotValidException("Video duration must be > 0.");
         }
 
+        // Implementación del método addVideo(Video video)
     }
 }
 
