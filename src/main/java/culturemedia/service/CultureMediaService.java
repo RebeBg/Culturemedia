@@ -1,5 +1,6 @@
 package culturemedia.service;
 
+import culturemedia.exception.CultureMediaException;
 import culturemedia.model.Video;
 import culturemedia.model.View;
 
@@ -7,8 +8,8 @@ import java.util.List;
 
 public interface CultureMediaService {
     List<Video> findAll();
-    Video save(Video save);
-    void agregar(View view);
-
+    void addView(View view);
+    void addVideo(Video video) throws CultureMediaException;
 }
+
 
