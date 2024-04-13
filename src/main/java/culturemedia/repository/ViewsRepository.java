@@ -6,8 +6,5 @@ import culturemedia.model.View;
 import java.util.List;
 
 public interface ViewsRepository {
-
-    void agregar(View view);
-
-
+    void addView(View view);
 }
