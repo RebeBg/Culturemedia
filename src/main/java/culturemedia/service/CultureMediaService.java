@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CultureMediaService {
     List<Video> findAll();
-    void save(View view);
+    View save(View view);
     void save(Video video) ;
 }
 
