@@ -9,7 +9,7 @@ import java.util.List;
 public interface CultureMediaService {
     List<Video> findAll();
     View save(View view);
-    void save(Video video) ;
+    Video save(Video video);
 }
 
 
