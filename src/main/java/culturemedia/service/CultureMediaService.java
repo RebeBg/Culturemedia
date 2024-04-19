@@ -1,6 +1,4 @@
 package culturemedia.service;
-
-import culturemedia.exception.CultureMediaException;
 import culturemedia.model.Video;
 import culturemedia.model.View;
 
