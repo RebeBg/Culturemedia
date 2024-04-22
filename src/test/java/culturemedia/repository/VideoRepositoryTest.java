@@ -9,6 +9,7 @@ import culturemedia.model.Video;
 import culturemedia.repository.impl.VideoRepositoryImpl;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class VideoRepositoryTest {
 
@@ -53,12 +54,14 @@ class VideoRepositoryTest {
 
     @Test
     void when_FindByTitle_does_not_match_any_video_an_empty_list_should_be_returned_successfully() {
-        assert(false);
+        List<Video> videos = videoRepository.find("NonexistentTitle");
+        assertEquals(0,videos.size());
     }
 
     @Test
     void when_FindByDuration_does_not_match_any_video_an_empty_list_should_be_returned_successfully() {
-        assert(false);
+        List<Video> videos = videoRepository.find(10.0, 15.0);
+        assertTrue(videos.isEmpty());
     }
 
 }
