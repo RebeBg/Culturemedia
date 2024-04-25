@@ -1,12 +1,12 @@
 package culturemedia.service.Impl;
-import culturemedia.exception.VideoNotFoundException;
-
 import culturemedia.model.Video;
 import culturemedia.model.View;
 import culturemedia.repository.VideoRepository;
 import culturemedia.repository.ViewsRepository;
 import culturemedia.service.CultureMediaService;
+import culturemedia.exception.VideoNotFoundException;
 
+import java.text.MessageFormat;
 import java.util.List;
 
 public class CultureMediaServiceImpl implements CultureMediaService {
@@ -15,13 +15,36 @@ public class CultureMediaServiceImpl implements CultureMediaService {
 
     public CultureMediaServiceImpl(VideoRepository videoRepository) {
         this.videoRepository = videoRepository;
-
+        this.viewsRepository = viewsRepository;
     }
-    @Override
-    public List<Video> findAll() throws VideoNotFoundException {
-        List<Video> videos = videoRepository.findAll();
-        if (videos.isEmpty()) {
+
+    public List <Video> find(String title) throws VideoNotFoundException {
+        var video =videoRepository.find(title);
+        try {
+            if (video.isEmpty()) {
+                throw new VideoNotFoundException();
+            }
+            return video;
+        }catch(Exception e){
+            throw new VideoNotFoundException(MessageFormat.format("video not found with the tittle: {0}, Error: {1} " + title,e));
+        }
+    }
+
+    public List <Video> find(Double fromDuration, Double toDuration)throws VideoNotFoundException {
+        var video = videoRepository.find(fromDuration, toDuration);
+        try {
+            if (video.isEmpty()) {
+                throw new VideoNotFoundException();
+            }
+            return video;
+        }catch(Exception e) {
             throw new VideoNotFoundException();
+        }
+    }
+    public List<Video> findAll() throws VideoNotFoundException {
+        var videos = videoRepository.findAll();
+        if (videos.isEmpty()) {
+            throw new VideoNotFoundException("No videos found.");
         }
         return videos;
     }
@@ -35,6 +58,4 @@ public class CultureMediaServiceImpl implements CultureMediaService {
     }
 
 }
-
-
 
