@@ -13,10 +13,11 @@ public class CultureMediaServiceImpl implements CultureMediaService {
     private VideoRepository videoRepository;
     private ViewsRepository viewsRepository;
 
-    public CultureMediaServiceImpl(VideoRepository videoRepository) {
+    public CultureMediaServiceImpl(VideoRepository videoRepository, Object o) {
         this.videoRepository = videoRepository;
         this.viewsRepository = viewsRepository;
     }
+
 
     public List <Video> find(String title) throws VideoNotFoundException {
         var video =videoRepository.find(title);
