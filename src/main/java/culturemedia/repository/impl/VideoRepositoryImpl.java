@@ -1,9 +1,10 @@
-package culturemedia.repository.impl;
+package culturemedia.repository.Impl;
 import java.util.ArrayList;
 import java.util.List;
 
 import culturemedia.model.Video;
 import culturemedia.repository.VideoRepository;
+
 public class VideoRepositoryImpl  implements VideoRepository {
     private final List<Video> videos;
 
@@ -27,9 +28,6 @@ public class VideoRepositoryImpl  implements VideoRepository {
         List<Video> filteredVideos = new ArrayList<>();
         for ( Video video : videos ) {
             if( video.title().contains(title)){
-                if(filteredVideos == null){
-                    filteredVideos = new ArrayList<Video>();
-                }
                 filteredVideos.add(video);
             }
         }
